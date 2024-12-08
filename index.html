@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Proposal</title>
+    <style>
+        body {
+            background-color: #ffcce0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars from appearing */
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            transform: scale(1.5); /* Adjust this scale value to zoom in or out */
+        }
+        .header_text {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .cute_image {
+            width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            background-color: #ffb3c6;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #ff99af;
+        }
+        #noButton {
+            position: relative;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header_text">May I court you and be your Flynn Rider?</h1>
+        <div>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration" class="cute_image">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        function moveButton() {
+            var noButton = document.getElementById('noButton');
+            var container = document.querySelector('.container');
+            var containerRect = container.getBoundingClientRect();
+            
+            // Generate a new random position within the container bounds
+            var x = Math.random() * (containerRect.width - noButton.offsetWidth);
+            var y = Math.random() * (containerRect.height - noButton.offsetHeight);
+            
+            noButton.style.position = "absolute";
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
